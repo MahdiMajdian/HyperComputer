@@ -38,8 +38,8 @@ function App() {
 
 	return (
 		<Layout>
-			<div className="font-semibold text-xl text-center">
-				<p>Toggle Dark Mode:</p>
+			<div className="pt-20 font-semibold text-xl text-center bg-gray-100 min-h-screen">
+				<p className="mt-8">Toggle Dark Mode:</p>
 				<button
 					className="bg-green-500 shadow m-4 rounded p-2 text-white"
 					onClick={toggle}>
