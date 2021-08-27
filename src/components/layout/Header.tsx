@@ -8,17 +8,34 @@ import {
 } from "react-icons/fi"
 import { BiCoin } from "react-icons/bi"
 import logo from "../../assets/images/logo.webp"
+import { useEffect } from "react"
+import { useState } from "react"
 const Header = () => {
+	const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true)
+
+	useEffect(() => {
+		let oldScroll = 0
+		window.onscroll = () => {
+			const newScroll = window.pageYOffset
+			if (newScroll - oldScroll > 0) {
+				setIsMenuVisible(false)
+			} else if (newScroll - oldScroll < 0) {
+				setIsMenuVisible(true)
+			}
+			oldScroll = newScroll
+		}
+	}, [])
+
 	return (
-		<header className="w-screen flex flex-col justify-center bg-white dark:bg-gray-800 fixed shadow-md text-gray-800 dark:text-white">
-			<div className="h-20 w-full flex justify-around items-center mx-auto max-w-7xl ">
+		<header className="w-screen flex flex-col justify-center  fixed  text-gray-800 dark:text-white">
+			<div className="h-20 w-full flex justify-around items-center mx-auto max-w-8xl z-10 bg-white dark:bg-gray-800">
 				<div>
 					<img src={logo} alt="logo" className="h-10" />
 				</div>
 
-				<div className="w-96 flex items-center transition ease-in-out duration-300 hover:bg-gray-300 bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700  rounded-full">
+				<div className="w-96 flex items-center transition ease-in-out duration-200 hover:bg-gray-300 bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700  rounded-full">
 					<input
-						className="w-full text-sm bg-transparent transition ease-in-out duration-300 bg-gray-200 dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full  dark:text-white outline-none p-2.5"
+						className="w-full text-sm bg-transparent transition ease-in-out duration-200 bg-gray-200 dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full  dark:text-white outline-none p-2.5"
 						placeholder="دنبال چه چیزی می گردید؟"
 					/>
 					<a href="#" className="p-2.5">
@@ -47,8 +64,10 @@ const Header = () => {
 				</div>
 			</div>
 			{/* subHeader */}
-			<div className="h-10 w-full text-sm text-gray-600 font-medium dark:text-gray-200 flex justify-around items-center mx-auto max-w-7xl ">
-				{/* right category */}
+			<div
+				className={`transition transform ${
+					!isMenuVisible && "-translate-y-10"
+				} shadow-md duration-200 h-10 w-full text-sm text-gray-600 font-medium dark:text-gray-200 bg-white dark:bg-gray-800 flex justify-around items-center mx-auto max-w-8xl`}>
 				<div>
 					<ul className="flex gap-4">
 						<li>
