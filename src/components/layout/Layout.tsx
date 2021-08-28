@@ -1,4 +1,5 @@
 import React from "react"
+import Footer from "./Footer"
 import Header from "./Header"
 
 interface ILayout {
@@ -10,6 +11,7 @@ const Layout: React.FC<ILayout> = (props) => {
 		<>
 			<Header themeToggle={props.themeToggle} />
 			<main>{props.children}</main>
+			<Footer />
 		</>
 	)
 }
