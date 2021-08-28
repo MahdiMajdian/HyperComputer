@@ -12,7 +12,9 @@ module.exports = {
 		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			translate: ['active', 'dark'],
+		},
 	},
 	plugins: [],
 }

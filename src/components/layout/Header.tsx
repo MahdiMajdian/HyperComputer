@@ -5,12 +5,20 @@ import {
 	FiSearch,
 	FiMoreHorizontal,
 	FiChevronDown,
+	FiPercent,
+	FiSun,
+	FiMoon,
 } from "react-icons/fi"
 import { BiCoin } from "react-icons/bi"
+import { FaHandshake } from "react-icons/fa"
 import logo from "../../assets/images/logo.webp"
-import { useEffect } from "react"
-import { useState } from "react"
-const Header = () => {
+import { useState, useEffect } from "react"
+
+interface IHeader {
+	themeToggle: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const Header:React.FC<IHeader> = (props) => {
 	const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true)
 
 	useEffect(() => {
@@ -28,7 +36,7 @@ const Header = () => {
 
 	return (
 		<header className="w-screen flex flex-col justify-center  fixed  text-gray-800 dark:text-white">
-			<div className="h-20 w-full flex justify-around items-center mx-auto max-w-8xl z-10 bg-white dark:bg-gray-800">
+			<div className="transition duration-300 h-20 w-full flex justify-around items-center mx-auto max-w-8xl z-10 bg-white dark:bg-gray-800">
 				<div>
 					<img src={logo} alt="logo" className="h-10" />
 				</div>
@@ -65,9 +73,9 @@ const Header = () => {
 			</div>
 			{/* subHeader */}
 			<div
-				className={`transition transform ${
+				className={`transform transition duration-300 ${
 					!isMenuVisible && "-translate-y-10"
-				} shadow-md duration-200 h-10 w-full text-sm text-gray-600 font-medium dark:text-gray-200 bg-white dark:bg-gray-800 flex justify-around items-center mx-auto max-w-8xl`}>
+				} shadow-md  h-10 w-full text-sm text-gray-600 font-medium dark:text-gray-200 bg-white dark:bg-gray-800 flex justify-around items-center mx-auto max-w-8xl`}>
 				<div>
 					<ul className="flex gap-4">
 						<li>
@@ -106,23 +114,31 @@ const Header = () => {
 				</div>
 				<div>
 					<ul className="flex gap-4">
-						<li>
+						<li className="my-auto">
 							<a href="#" className="flex items-center gap-2">
 								<BiCoin className="text-green-500 text-base" />
 								<p>خرید اقساطی</p>
 							</a>
 						</li>
-						<li>
+						<li className="my-auto">
 							<a href="#" className="flex items-center gap-2">
-								<BiCoin className="text-green-500 text-base" />
+								<FiPercent className="text-green-500 text-base" />
 								<p>فروش ویژه</p>
 							</a>
 						</li>
-						<li>
+						<li className="my-auto">
 							<a href="#" className="flex items-center gap-2">
-								<BiCoin className="text-green-500 text-base" />
+								<FaHandshake className="text-green-500 text-base" />
 								<p>دست دوم</p>
 							</a>
+						</li>
+						<li className="flex gap-2 items-center my-auto">
+							<button 
+							onClick={props.themeToggle}
+							className="flex overflow-hidden w-5 h-5 relative rounded-full">
+								<FiMoon className="w-full h-full text-green-500 transform transition duration-700 absolute translate-x-5 dark:translate-x-0" />
+								<FiSun className="w-full h-full text-yellow-500 transform transition duration-700 absolute translate-x-0 dark:-translate-x-5" />
+							</button>
 						</li>
 					</ul>
 				</div>

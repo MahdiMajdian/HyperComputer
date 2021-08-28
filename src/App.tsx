@@ -26,7 +26,7 @@ function App() {
 			})
 	}, [])
 
-	const toggle = () => {
+	const themeToggle = () => {
 		if (darkMode === "dark") {
 			localStorage.theme = "light"
 			setdarkMode("light")
@@ -37,12 +37,12 @@ function App() {
 	}
 
 	return (
-		<Layout>
-			<div className="h-screen pt-32 font-semibold text-xl text-center bg-gray-100 dark:bg-gray-900 min-h-screen">
+		<Layout themeToggle={themeToggle}>
+			<div className="h-screen pt-32 font-semibold text-xl text-center transition duration-300 bg-gray-100 dark:bg-gray-900 min-h-screen">
 				<p className="mt-8 dark:text-white">Toggle Dark Mode:</p>
 				<button
 					className="bg-green-500 shadow m-4 rounded p-2 text-white"
-					onClick={toggle}>
+					onClick={themeToggle}>
 					Dark mode
 				</button>
 			</div>
@@ -50,7 +50,7 @@ function App() {
 				<p className="mt-8 dark:text-white">Toggle Dark Mode:</p>
 				<button
 					className="bg-green-500 shadow m-4 rounded p-2 text-white"
-					onClick={toggle}>
+					onClick={themeToggle}>
 					Dark mode
 				</button>
 			</div>
