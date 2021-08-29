@@ -18,7 +18,7 @@ interface IHeader {
 	themeToggle: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Header:React.FC<IHeader> = (props) => {
+const Header: React.FC<IHeader> = (props) => {
 	const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true)
 
 	useEffect(() => {
@@ -133,9 +133,9 @@ const Header:React.FC<IHeader> = (props) => {
 							</a>
 						</li>
 						<li className="flex gap-2 items-center my-auto">
-							<button 
-							onClick={props.themeToggle}
-							className="flex overflow-hidden w-5 h-5 relative rounded-full">
+							<button
+								onClick={props.themeToggle}
+								className="flex overflow-hidden w-5 h-5 relative rounded-full">
 								<FiMoon className="w-full h-full text-green-500 transform transition duration-700 absolute translate-x-5 dark:translate-x-0" />
 								<FiSun className="w-full h-full text-yellow-500 transform transition duration-700 absolute translate-x-0 dark:-translate-x-5" />
 							</button>
