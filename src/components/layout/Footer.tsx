@@ -14,6 +14,7 @@ import {
 	FaMapMarkerAlt,
 } from "react-icons/fa"
 import enamad from "../../assets/images/enamad.png"
+import karLogo from "../../assets/images/kar.svg"
 const Footer = () => {
 	return (
 		<footer className="relative transition duration-300 bg-white dark:bg-gray-800 w-full h-auto pt-28">
@@ -144,11 +145,11 @@ const Footer = () => {
 					</ul>
 				</div>
 				<div className="flex justify-center">
-					<span className=" lg:w-24 2xl:w-36">
-						<img src={enamad} className="w-full h-auto" />
+					<span className="w-32 lg:w-28 2xl:w-40">
+						<img src={enamad} className='w-full'/>
 					</span>
-					<span className="lg:w-24 2xl:w-36">
-						<img src={enamad} className="w-full h-auto" />
+					<span className="w-28 lg:w-20 2xl:w-32">
+						<img src={karLogo} />
 					</span>
 				</div>
 			</div>
@@ -180,8 +181,8 @@ const Footer = () => {
 					</li>
 				</ul>
 			</div>
-			<div className='p-8 pt-4'>
-				<p className='text-sm text-gray-400 dark:text-gray-600 text-center'>
+			<div className="p-8 pt-4">
+				<p className="text-sm text-gray-400 dark:text-gray-600 text-center">
 					حق نشر ۱۴۰۰ تمامی حقوق برای لیون کامپیوتر محفوظ می‌باشد و
 					هرگونه کپی‌برداری مستلزم کسب اجازۀ کتبی بوده و پیگرد قانونی
 					خواهد داشت.
