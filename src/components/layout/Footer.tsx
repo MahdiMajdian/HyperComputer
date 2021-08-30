@@ -153,7 +153,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="mx-auto inset-x-0 w-full max-w-5xl 2xl:max-w-7xl">
-				<ul className='flex justify-around gap-4 py-8 mx-8 flex-wrap'>
+				<ul className='flex justify-around gap-4 py-8 mx-8 flex-wrap dark:text-gray-300'>
 					<li>
 						<a href="#">خانه</a>
 					</li>
