@@ -153,7 +153,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="mx-auto inset-x-0 w-full max-w-5xl 2xl:max-w-7xl">
-				<ul className='flex justify-around gap-4 py-8 mx-8 flex-wrap dark:text-gray-300'>
+				<ul className="flex justify-around gap-4 py-8 mx-8 flex-wrap dark:text-gray-300">
 					<li>
 						<a href="#">خانه</a>
 					</li>
@@ -178,8 +178,14 @@ const Footer = () => {
 					<li>
 						<a href="#">درباره ما</a>
 					</li>
-				
 				</ul>
+			</div>
+			<div className='p-8 pt-4'>
+				<p className='text-sm text-gray-400 dark:text-gray-600 text-center'>
+					حق نشر ۱۴۰۰ تمامی حقوق برای لیون کامپیوتر محفوظ می‌باشد و
+					هرگونه کپی‌برداری مستلزم کسب اجازۀ کتبی بوده و پیگرد قانونی
+					خواهد داشت.
+				</p>
 			</div>
 		</footer>
 	)
