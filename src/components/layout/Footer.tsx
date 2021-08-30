@@ -152,6 +152,35 @@ const Footer = () => {
 					</span>
 				</div>
 			</div>
+			<div className="mx-auto inset-x-0 w-full max-w-5xl 2xl:max-w-7xl">
+				<ul className='flex justify-around py-8'>
+					<li>
+						<a href="#">خانه</a>
+					</li>
+					<li>
+						<a href="#">چرا هایپر</a>
+					</li>
+					<li>
+						<a href="#">تالار گفتمان</a>
+					</li>
+					<li>
+						<a href="#">تماس با ما</a>
+					</li>
+					<li>
+						<a href="#">راهنمای خرید</a>
+					</li>
+					<li>
+						<a href="#">شرایط گارانتی</a>
+					</li>
+					<li>
+						<a href="#">اخبار</a>
+					</li>
+					<li>
+						<a href="#">درباره ما</a>
+					</li>
+				
+				</ul>
+			</div>
 		</footer>
 	)
 }
