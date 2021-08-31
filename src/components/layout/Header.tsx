@@ -36,14 +36,14 @@ const Header: React.FC<IHeader> = (props) => {
 	}, [])
 
 	return (
-		<header className="w-screen flex flex-col justify-center fixed  text-gray-800 dark:text-white">
+		<header className="w-screen flex flex-col justify-center fixed text-gray-800 dark:text-white">
 			<div className="bg-white dark:bg-gray-800 w-full z-10 transition duration-300 ">
-				<div className="h-20 w-full mx-auto max-w-8xl flex justify-around items-center ">
+				<div className="h-20 w-full mx-auto max-w-8xl flex justify-between px-4 sm:px-10 lg:px-20 items-center ">
 					<Link to="/">
 						<img src={logo} alt="logo" className="h-10" />
 					</Link>
 
-					<div className="w-96 flex items-center transition ease-in-out duration-200 hover:bg-gray-300 bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700  rounded-full">
+					<div className="w-96 hidden md:flex items-center transition ease-in-out duration-200 hover:bg-gray-300 bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700  rounded-full">
 						<input
 							className="w-full text-sm bg-transparent transition ease-in-out duration-200 bg-gray-200 dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full  dark:text-white outline-none p-2.5"
 							placeholder="دنبال چه چیزی می گردید؟"
@@ -54,23 +54,23 @@ const Header: React.FC<IHeader> = (props) => {
 					</div>
 
 					<div className="flex items-center gap-4">
-						<div className="">
+						<div>
 							<p className="text-gray-500 text-xs py-0.5">
 								با ما تماس بگیرید
 							</p>
 							<p className="text-sm py-0.5">021-87700265</p>
 						</div>
-						<div className="flex ">
+						<div className="hidden sm:flex gap-4">
 							<button className="relative">
 								<FiShoppingCart className="btn drop-shadow-lg" />
 								<div className="absolute -top-1 -right-2 iransans text-2xs font-bold flex justify-center items-center text-gray-600 bg-yellow-400 rounded-full w-5 h-4">
 									24
 								</div>
 							</button>
+							<button>
+								<FiUser className="btn drop-shadow-lg" />
+							</button>
 						</div>
-						<button>
-							<FiUser className="btn drop-shadow-lg" />
-						</button>
 					</div>
 				</div>
 			</div>
@@ -81,8 +81,8 @@ const Header: React.FC<IHeader> = (props) => {
 					!isMenuVisible && "-translate-y-10"
 				} shadow-md`}>
 				<div
-					className={`h-10 w-full text-sm text-gray-600 font-medium dark:text-gray-200  flex justify-around items-center mx-auto max-w-8xl`}>
-					<div>
+					className={`h-10 w-full text-xs sm:text-sm text-gray-600 font-medium dark:text-gray-200 flex justify-center md:justify-between px-0 sm:px-10 items-center mx-auto max-w-8xl`}>
+					<div className="hidden md:block">
 						<ul className="flex gap-4">
 							<li>
 								<a href="#" className="flex items-center gap-1">
@@ -102,11 +102,6 @@ const Header: React.FC<IHeader> = (props) => {
 							</li>
 							<li>
 								<a href="#">
-									<p>هارد پی‌سی</p>
-								</a>
-							</li>
-							<li>
-								<a href="#">
 									<p>شرایط گارانتی</p>
 								</a>
 							</li>
@@ -121,24 +116,24 @@ const Header: React.FC<IHeader> = (props) => {
 					<div>
 						<ul className="flex gap-4">
 							<li className="my-auto">
-								<a href="#" className="flex items-center gap-2">
+								<a href="#" className="flex items-center gap-1">
 									<BiCoin className="text-green-500 text-base" />
 									<p>خرید اقساطی</p>
 								</a>
 							</li>
 							<li className="my-auto">
-								<a href="#" className="flex items-center gap-2">
+								<a href="#" className="flex items-center gap-1">
 									<FiPercent className="text-green-500 text-base" />
 									<p>فروش ویژه</p>
 								</a>
 							</li>
 							<li className="my-auto">
-								<a href="#" className="flex items-center gap-2">
+								<a href="#" className="flex items-center gap-1">
 									<FaHandshake className="text-green-500 text-base" />
 									<p>دست دوم</p>
 								</a>
 							</li>
-							<li className="flex gap-2 items-center my-auto">
+							<li className="flex  items-center my-auto">
 								<button
 									onClick={props.themeToggle}
 									className="flex overflow-hidden w-5 h-5 relative rounded-full">

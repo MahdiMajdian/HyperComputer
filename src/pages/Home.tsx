@@ -14,7 +14,7 @@ const Home = () => {
 					<div className="w-full rounded-lg shadow-md overflow-hidden mb-6">
 						<img src={slide1} alt="" />
 					</div>
-					<div className="w-full rounded-lg shadow-md overflow-hidden">
+					<div className="w-full rounded-lg shadow-md overflow-hidden mb-6 md:mb-0">
 						<img src={slide1} alt="" />
 					</div>
 				</div>
