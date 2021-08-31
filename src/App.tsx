@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
+import { BrowserRouter } from "react-router-dom"
 import "./App.css"
 import Layout from "./components/layout/Layout"
+import { routes } from "./router/router"
 
 function App() {
 	const [darkMode, setdarkMode] = useState<string>(
@@ -38,22 +40,7 @@ function App() {
 
 	return (
 		<Layout themeToggle={themeToggle}>
-			<div className="h-screen pt-32 font-semibold text-xl text-center transition duration-300 bg-gray-200 dark:bg-gray-900 min-h-screen">
-				<p className="mt-8 dark:text-white">Toggle Dark Mode:</p>
-				<button
-					className="bg-green-500 shadow m-4 rounded p-2 text-white"
-					onClick={themeToggle}>
-					Dark mode
-				</button>
-			</div>
-			<div className="h-screen pt-32 font-semibold text-xl text-center transition duration-300 bg-gray-200 dark:bg-gray-900 min-h-screen">
-				<p className="mt-8 dark:text-white">Toggle Dark Mode:</p>
-				<button
-					className="bg-green-500 shadow m-4 rounded p-2 text-white"
-					onClick={themeToggle}>
-					Dark mode
-				</button>
-			</div>
+			<BrowserRouter>{routes}</BrowserRouter>
 		</Layout>
 	)
 }
