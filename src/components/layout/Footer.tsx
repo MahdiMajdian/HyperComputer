@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import {
 	AiFillYoutube,
 	AiOutlineTwitter,
@@ -146,7 +147,7 @@ const Footer = () => {
 				</div>
 				<div className="flex justify-center">
 					<span className="w-32 lg:w-28 2xl:w-40">
-						<img src={enamad} className='w-full'/>
+						<img src={enamad} className="w-full" />
 					</span>
 					<span className="w-28 lg:w-20 2xl:w-32">
 						<img src={karLogo} />
@@ -156,7 +157,7 @@ const Footer = () => {
 			<div className="mx-auto inset-x-0 w-full max-w-5xl 2xl:max-w-7xl">
 				<ul className="flex justify-around gap-4 py-8 mx-8 flex-wrap dark:text-gray-300">
 					<li>
-						<a href="#">خانه</a>
+						<Link to="/">خانه</Link>
 					</li>
 					<li>
 						<a href="#">چرا هایپر</a>

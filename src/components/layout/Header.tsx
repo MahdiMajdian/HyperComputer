@@ -13,6 +13,7 @@ import { BiCoin } from "react-icons/bi"
 import { FaHandshake } from "react-icons/fa"
 import logo from "../../assets/images/logo.webp"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 interface IHeader {
 	themeToggle: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -38,9 +39,9 @@ const Header: React.FC<IHeader> = (props) => {
 		<header className="w-screen flex flex-col justify-center fixed  text-gray-800 dark:text-white">
 			<div className="bg-white dark:bg-gray-800 w-full z-10 transition duration-300 ">
 				<div className="h-20 w-full mx-auto max-w-8xl flex justify-around items-center ">
-					<div>
+					<Link to="/">
 						<img src={logo} alt="logo" className="h-10" />
-					</div>
+					</Link>
 
 					<div className="w-96 flex items-center transition ease-in-out duration-200 hover:bg-gray-300 bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700  rounded-full">
 						<input

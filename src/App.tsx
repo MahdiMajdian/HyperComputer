@@ -39,9 +39,9 @@ function App() {
 	}
 
 	return (
-		<Layout themeToggle={themeToggle}>
-			<BrowserRouter>{routes}</BrowserRouter>
-		</Layout>
+		<BrowserRouter>
+			<Layout themeToggle={themeToggle}>{routes}</Layout>
+		</BrowserRouter>
 	)
 }
 
