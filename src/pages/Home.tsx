@@ -31,7 +31,7 @@ const Home = () => {
 						</h1>
 					</div>
 
-					<div className="w-full flex flex-wrap justify-center gap-8 pb-4 px-8">
+					<div className="w-full flex justify-center gap-8 pb-4 ">
 						<div className="absolute right-0 inset-y-0 flex items-center pb-4">
 							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-l-full">
 								<IoIosArrowForward className="w-full h-auto p-2 text-green-500" />
@@ -42,11 +42,40 @@ const Home = () => {
 								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
+						<div className="flex justify-center gap-8 overflow-x-auto">
+							<ProductItem />
+							<ProductItem />
+							<ProductItem />
+							<ProductItem />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="w-full h-auto bg-gray-200 dark:bg-gray-800 shadow-md">
+				<div className=" max-w-7xl mx-auto">
+					<h1 className="p-8 text-green-500 dark:text-green-400 text-xl font-medium">
+						محصولات پیشنهادی
+					</h1>
 
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
+					<div className="w-full relative pb-4 px-10">
+						<div className="absolute right-10 inset-y-0 flex items-center pb-4">
+							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-l-full">
+								<IoIosArrowForward className="w-full h-auto p-2 text-green-500" />
+							</div>
+						</div>
+						<div className="absolute left-10 inset-y-0 flex items-center pb-4">
+							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-r-full">
+								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
+							</div>
+						</div>
+						<div className="flex justify-center gap-8 overflow-x-auto">
+							<ProductItem />
+							<ProductItem />
+							<ProductItem />
+							<ProductItem />
+							<ProductItem />
+							<ProductItem />
+						</div>
 					</div>
 				</div>
 			</div>
