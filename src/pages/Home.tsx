@@ -130,7 +130,54 @@ const Home: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			
+			<div className="w-full max-w-7xl h-auto px-10">
+				<div className="rounded-lg bg-gray-200 dark:bg-gray-800 shadow-md">
+					<div className="flex items-center gap-4 p-8">
+						<FaCircle className="bg-gray-100 rounded-full p-1 text-green-400" />
+						<h1 className="text-gray-700 dark:text-white text-xl font-medium">
+							نظرات
+						</h1>
+					</div>
+					<div className="w-full relative flex justify-center gap-8 pb-4 ">
+						<div className="absolute right-0 inset-y-0 flex items-center pb-4">
+							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-l-full">
+								<IoIosArrowForward className="w-full h-auto p-2 text-green-500" />
+							</div>
+						</div>
+						<div className="absolute left-0 inset-y-0 flex items-center pb-4">
+							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-r-full">
+								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
+							</div>
+						</div>
+						<div className="flex justify-center overflow-x-auto  divide divide-x-reverse divide-x-2 divide-opacity-20 divide-gray-100">
+							<CommentItem
+								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+					برخوردار هست و توی این رنج قیمت با "
+								author="جلال محمدی"
+							/>
+							<CommentItem
+								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+					برخوردار هست و توی این رنج قیمت با "
+								author="جلال محمدی"
+							/>
+							<CommentItem
+								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+					برخوردار هست و توی این رنج قیمت با "
+								author="جلال محمدی"
+							/>
+							<CommentItem
+								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+					برخوردار هست و توی این رنج قیمت با "
+								author="جلال محمدی"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

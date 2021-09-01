@@ -1,13 +1,20 @@
 import React from "react"
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai"
 import { IoMdShuffle } from "react-icons/io"
+import { FaHandshake } from "react-icons/fa"
 
 import modem from "../../assets/images/modem.webp"
 
-const ProductItem = () => {
+const ProductItem = (props: any) => {
 	return (
 		<div>
-			<div className="w-56 h-96 flex flex-col gap-4 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg overflow-hidden">
+			<div className="w-56 h-96 flex flex-col relative gap-4 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg overflow-hidden">
+				{props.badge && (
+					<div className="absolute top-2 left-2 flex items-center gap-2 opacity-80 hover:opacity-100 rounded-full bg-yellow-300 py-1 px-4 text-xs font-bold text-gray-700">
+						<FaHandshake />
+						<p>{props.badge}</p>
+					</div>
+				)}
 				<img src={modem} />
 				<p className="text-sm px-4 mb-auto text-gray-700 dark:text-white">
 					مودم روتر بی سیم تی پی لینک +TD-W8961N ADSL2
