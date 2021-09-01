@@ -36,7 +36,7 @@ const Header: React.FC<IHeader> = (props) => {
 	}, [])
 
 	return (
-		<header className="w-screen flex flex-col justify-center fixed text-gray-800 dark:text-white">
+		<header className="w-screen flex flex-col justify-center fixed text-gray-800 dark:text-white z-50">
 			<div className="bg-white dark:bg-gray-800 w-full z-10 transition duration-300 ">
 				<div className="h-20 w-full mx-auto max-w-8xl flex justify-between px-4 sm:px-10 lg:px-20 items-center ">
 					<Link to="/">
