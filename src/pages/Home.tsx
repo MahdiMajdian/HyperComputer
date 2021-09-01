@@ -89,7 +89,7 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="w-full max-w-7xl h-auto px-10">
-				<div className="flex justify-center rounded-lg divide-x divide-x-reverse divide-gray-700 bg-gray-200 dark:bg-gray-800 shadow-md">
+				<div className="flex flex-wrap sm:flex-nowrap justify-center rounded-lg sm:divide-x sm:divide-x-reverse divide-gray-700 bg-gray-200 dark:bg-gray-800 shadow-md">
 					<CategoryListItem img={category1} text="کنسول بازی" />
 					<CategoryListItem img={category2} text="کارت گرافیک" />
 					<CategoryListItem img={category3} text="مادربرد" />
