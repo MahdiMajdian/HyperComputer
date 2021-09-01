@@ -1,10 +1,19 @@
 import React from "react"
 import { IoIosArrowForward, IoIosArrowBack, IoMdShuffle } from "react-icons/io"
-import { FaCircle } from "react-icons/fa"
+import { FaCircle, FaRegKeyboard } from "react-icons/fa"
+import { FiCpu } from "react-icons/fi"
+import { GrGamepad } from "react-icons/gr"
 import slide1 from "../assets/images/slide-1.webp"
 import slide2 from "../assets/images/slide-2.webp"
 import slide3 from "../assets/images/slide-3.webp"
 import ProductItem from "../components/ProductItem/ProductItem"
+import CategoryListItem from "../components/CategoryListItem/CategoryListItem"
+import category1 from "../assets/images/HomeCategory/1.svg"
+import category2 from "../assets/images/HomeCategory/2.svg"
+import category3 from "../assets/images/HomeCategory/3.svg"
+import category4 from "../assets/images/HomeCategory/4.svg"
+import category5 from "../assets/images/HomeCategory/5.svg"
+import category6 from "../assets/images/HomeCategory/6.svg"
 const Home = () => {
 	return (
 		<div className="py-36 flex flex-col gap-6 items-center bg-gray-200 dark:bg-gray-900 transition duration-300  min-h-screen">
@@ -77,6 +86,16 @@ const Home = () => {
 							<ProductItem />
 						</div>
 					</div>
+				</div>
+			</div>
+			<div className="w-full max-w-7xl h-auto px-10">
+				<div className="flex justify-center rounded-lg divide-x divide-x-reverse divide-gray-700 bg-gray-200 dark:bg-gray-800 shadow-md">
+					<CategoryListItem img={category1} text="کنسول بازی" />
+					<CategoryListItem img={category2} text="کارت گرافیک" />
+					<CategoryListItem img={category3} text="مادربرد" />
+					<CategoryListItem img={category4} text="مانیتور" />
+					<CategoryListItem img={category5} text="پردازنده" />
+					<CategoryListItem img={category6} text="کیبورد و موس" />
 				</div>
 			</div>
 		</div>
