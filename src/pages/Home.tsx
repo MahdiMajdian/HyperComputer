@@ -50,26 +50,51 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="w-full relative flex justify-center gap-8 pb-4 ">
-						<div className="absolute right-0 inset-y-0 flex items-center pb-4">
+						<div className="absolute right-0 z-10 inset-y-0 flex items-center pb-4">
 							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-l-full">
 								<IoIosArrowForward className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
-						<div className="absolute left-0 inset-y-0 flex items-center pb-4">
+						<div className="absolute left-0 z-10 inset-y-0 flex items-center pb-4">
 							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-r-full">
 								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
-						<div className="flex justify-center gap-8 overflow-x-auto">
-							{bestSellers.map((product) => (
-								<ProductItem
-									key={product.id}
-									id={product.id}
-									name={product.faTitle}
-									price={product.price}
-									img={product.images[0]}
-								/>
-							))}
+						<div className="flex justify-center w-full">
+						<Swiper
+								slidesPerView={1.3}
+								spaceBetween={10}
+								centeredSlides={false}
+								breakpoints={{
+									"512": {
+										slidesPerView: 1.8,
+									},
+									"768": {
+										slidesPerView: 3,
+									},
+									"1024": {
+										slidesPerView: 3.8,
+									},
+									"1280": {
+										slidesPerView: 4.3,
+									},
+									"1536": {
+										slidesPerView: 4.6,
+									},
+								}}
+								className="mySwiper z-0">
+								{bestSellers.map((product) => (
+									<SwiperSlide>
+										<ProductItem
+											key={product.id}
+											id={product.id}
+											name={product.faTitle}
+											price={product.price}
+											img={product.images[0]}
+										/>
+									</SwiperSlide>
+								))}
+							</Swiper>
 						</div>
 					</div>
 				</div>
