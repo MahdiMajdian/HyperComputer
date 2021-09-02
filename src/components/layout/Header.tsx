@@ -21,6 +21,8 @@ interface IHeader {
 
 const Header: React.FC<IHeader> = (props) => {
 	const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true)
+	const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false)
+	const [isOtherOpen, setIsOtherOpen] = useState<boolean>(false)
 
 	useEffect(() => {
 		let oldScroll = 0
@@ -81,35 +83,89 @@ const Header: React.FC<IHeader> = (props) => {
 					!isMenuVisible && "-translate-y-10"
 				} shadow-md`}>
 				<div
-					className={`h-10 w-full text-xs sm:text-sm text-gray-600 font-medium dark:text-gray-200 flex justify-center md:justify-between px-0 sm:px-10 items-center mx-auto max-w-8xl`}>
-					<div className="hidden md:block">
-						<ul className="flex gap-4">
-							<li>
+					className={`h-10 w-full relative text-xs sm:text-sm text-gray-600 font-medium dark:text-gray-200 flex justify-center md:justify-between px-0 sm:px-10 items-center mx-auto max-w-8xl`}>
+					<div className="hidden md:block h-full">
+						<ul className="flex gap-4 h-full">
+							<li
+								className="h-full flex items-center"
+								onMouseEnter={() => setIsCategoryOpen(true)}
+								onMouseLeave={() => setIsCategoryOpen(false)}>
 								<a href="#" className="flex items-center gap-1">
 									<p>دسته بندی ها</p>
 									<FiChevronDown className="text-green-400" />
 								</a>
+								{isCategoryOpen && (
+									<div
+										className="absolute top-10	w-full pl-20"
+										onMouseOver={() =>
+											setIsCategoryOpen(true)
+										}>
+										<div className="bg-indigo-400 p-4 h-full w-full">
+											dfdfdfdf
+										</div>
+									</div>
+								)}
 							</li>
-							<li>
+							<li className="h-full flex items-center">
 								<a href="#">
 									<p>چرا هایپر کامپیوتر</p>
 								</a>
 							</li>
-							<li>
+							<li className="h-full flex items-center">
 								<a href="#">
 									<p>راهنمای خرید</p>
 								</a>
 							</li>
-							<li>
+							<li className="h-full flex items-center">
 								<a href="#">
 									<p>شرایط گارانتی</p>
 								</a>
 							</li>
-							<li>
+							<li
+								className="h-full flex items-center relative"
+								onMouseEnter={() => setIsOtherOpen(true)}
+								onMouseLeave={() => setIsOtherOpen(false)}>
 								<a href="#" className="flex items-center gap-1">
 									<p>سایر</p>
 									<FiMoreHorizontal className="text-green-400" />
 								</a>
+								{isOtherOpen && (
+									<div className="absolute w-56 top-10 bg-white dark:bg-gray-800 rounded-b-lg overflow-hidden">
+										<ul className="w-full">
+											<li className="p-4">
+												<a
+													href="#"
+													className="font-medium">
+													خرید اقساطی
+												</a>
+											</li>
+
+											<li className="p-4">
+												<a
+													href="#"
+													className="font-medium">
+													تماس با ما
+												</a>
+											</li>
+
+											<li className="p-4">
+												<a
+													href="#"
+													className="font-medium">
+													سوالات متداول
+												</a>
+											</li>
+
+											<li className="p-4">
+												<a
+													href="#"
+													className="font-medium">
+													درباره ما
+												</a>
+											</li>
+										</ul>
+									</div>
+								)}
 							</li>
 						</ul>
 					</div>
