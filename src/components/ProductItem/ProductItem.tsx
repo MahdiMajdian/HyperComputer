@@ -4,8 +4,14 @@ import { IoMdShuffle } from "react-icons/io"
 import { FaHandshake } from "react-icons/fa"
 
 import modem from "../../assets/images/modem.webp"
-
-const ProductItem = (props: any) => {
+interface IProductItem {
+	id: number
+	name: string
+	price: number
+	img: string
+	badge?: string
+}
+const ProductItem: React.FC<IProductItem> = (props) => {
 	return (
 		<div>
 			<div className="w-56 h-96 flex flex-col relative gap-4 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg overflow-hidden">
@@ -17,10 +23,10 @@ const ProductItem = (props: any) => {
 				)}
 				<img src={modem} />
 				<p className="text-sm px-4 mb-auto text-gray-700 dark:text-white">
-					مودم روتر بی سیم تی پی لینک +TD-W8961N ADSL2
+					{props.name}
 				</p>
 				<p className="text-left font-bold px-4 text-green-400">
-					1,199,000 تومان
+					{props.price} تومان
 				</p>
 				<div className="flex justify-around mb-4">
 					<div>
