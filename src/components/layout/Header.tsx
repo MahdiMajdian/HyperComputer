@@ -15,6 +15,10 @@ import { FaDotCircle, FaHandshake } from "react-icons/fa"
 import logo from "../../assets/images/logo.webp"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import CategoryMenuContent1 from "../CategoryMenu/CategoryMenuContent1"
+import CategoryMenuContent2 from "../CategoryMenu/CategoryMenuContent2"
+import CategoryMenuContent3 from "../CategoryMenu/CategoryMenuContent3"
+import CategoryMenuContent4 from "../CategoryMenu/CategoryMenuContent4"
 
 interface IHeader {
 	themeToggle: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -24,7 +28,7 @@ const Header: React.FC<IHeader> = (props) => {
 	const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true)
 	const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false)
 	const [isOtherOpen, setIsOtherOpen] = useState<boolean>(false)
-
+	const [categoryContent, setCategoryContent] = useState<number>(1)
 	useEffect(() => {
 		let oldScroll = 0
 		window.onscroll = () => {
@@ -107,58 +111,38 @@ const Header: React.FC<IHeader> = (props) => {
 										<div className="grid grid-cols-8 rounded-b-lg h-full w-full">
 											<div className="col-span-2 bg-green-50 dark:bg-gray-700">
 												<ul className="py-8 pr-6">
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
+													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+													onMouseOver={()=> setCategoryContent(1)}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
+															<p>پردازنده</p>
 														</div>
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
 													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
+													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+													onMouseOver={()=> setCategoryContent(2)}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
+															<p>کارت گرافیک</p>
 														</div>
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
 													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
+													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+													onMouseOver={()=> setCategoryContent(3)}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
+															<p>کیبورد</p>
 														</div>
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
 													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
+													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+													onMouseOver={()=> setCategoryContent(4)}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
-														</div>
-
-														<FiChevronLeft className="text-green-400 w-4 h-4" />
-													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
-														<div className="flex gap-2 items-center">
-															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
-														</div>
-
-														<FiChevronLeft className="text-green-400 w-4 h-4" />
-													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
-														<div className="flex gap-2 items-center">
-															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
-														</div>
-
-														<FiChevronLeft className="text-green-400 w-4 h-4" />
-													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg">
-														<div className="flex gap-2 items-center">
-															<FaDotCircle className="text-green-400 w-2 h-2" />
-															<p>sdfsfsdf</p>
+															<p>مادربورد</p>
 														</div>
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
@@ -166,7 +150,18 @@ const Header: React.FC<IHeader> = (props) => {
 												</ul>
 											</div>
 											<div className="col-span-6 bg-white dark:bg-gray-800">
-												sdfsdfsdfsdf
+												{categoryContent === 1 && (
+													<CategoryMenuContent1 />
+												)}
+												{categoryContent === 2 && (
+													<CategoryMenuContent2 />
+												)}
+												{categoryContent === 3 && (
+													<CategoryMenuContent3 />
+												)}
+												{categoryContent === 4 && (
+													<CategoryMenuContent4 />
+												)}
 											</div>
 										</div>
 									</div>
