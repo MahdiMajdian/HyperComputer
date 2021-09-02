@@ -1,20 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const defaultState = {
-	items: [
-		{
-			id: 1,
-			faTitle: "",
-			enTitle: "",
-			description: "",
-			rating: 4.5,
-			images: [],
-			price: 0,
-		},
-	],
-	mostVisited: [],
-	bestSellers: [],
-}
+// const defaultState = {
+// 	items: [
+// 		{
+// 			id: 1,
+// 			faTitle: "",
+// 			enTitle: "",
+// 			description: "",
+// 			rating: 4.5,
+// 			images: [],
+// 			price: 0,
+// 		},
+// 	],
+// 	mostVisited: [],
+// 	bestSellers: [],
+// }
 interface IItem {
 	id: number
 	faTitle: string
@@ -23,6 +23,8 @@ interface IItem {
 	rating: number
 	images: string[]
 	price: number
+	brand: string
+	category: string
 }
 interface IProducts {
 	items: IItem[]
@@ -47,6 +49,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 	],
 	mostVisited: [
@@ -63,6 +67,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 	],
 	bestSellers: [
@@ -79,6 +85,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 	],
 	recommended: [
@@ -95,6 +103,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -109,6 +119,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -123,6 +135,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -137,6 +151,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -151,6 +167,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -165,6 +183,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -179,6 +199,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -193,6 +215,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 	],
 	mostRecent: [
@@ -209,6 +233,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -223,6 +249,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -237,6 +265,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -251,6 +281,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -265,6 +297,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -279,6 +313,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -293,6 +329,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 		{
 			id: 1,
@@ -307,6 +345,8 @@ const initialState: IProducts = {
 				"https://www.lioncomputer.com/uploads/image/2021/8/1630393936-CffemHAsiUq8a0ae.jpg",
 			],
 			price: 479000,
+			category: "graphic-cart",
+			brand: "amd",
 		},
 	],
 }
