@@ -21,7 +21,7 @@ const ProductItem: React.FC<IProductItem> = (props) => {
 						<p>{props.badge}</p>
 					</div>
 				)}
-				<img src={modem} />
+				<img src={props.img} />
 				<p className="text-sm px-4 mb-auto text-gray-700 dark:text-white">
 					{props.name}
 				</p>

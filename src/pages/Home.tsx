@@ -61,7 +61,7 @@ const Home: React.FC = () => {
 							</div>
 						</div>
 						<div className="flex justify-center w-full">
-						<Swiper
+							<Swiper
 								slidesPerView={1.3}
 								spaceBetween={10}
 								centeredSlides={false}
@@ -189,7 +189,7 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="w-full flex justify-center gap-8 pb-4 ">
-						<div className="flex justify-center gap-8 overflow-x-auto">
+						<div className="flex justify-center gap-8 w-full">
 							<Swiper
 								slidesPerView={4.5}
 								spaceBetween={10}
@@ -211,17 +211,19 @@ const Home: React.FC = () => {
 										slidesPerView: 4.6,
 									},
 								}}
-								className="mySwiper z-0">
+								className="mySwiper w-full z-0">
 								{mostRecent.map((product) => (
 									<SwiperSlide>
-										<ProductItem
-											key={product.id}
-											id={product.id}
-											name={product.faTitle}
-											price={product.price}
-											img={product.images[0]}
-											badge="جدید"
-										/>
+										<div>
+											<ProductItem
+												key={product.id}
+												id={product.id}
+												name={product.faTitle}
+												price={product.price}
+												img={product.images[0]}
+												badge="جدید"
+											/>
+										</div>
 									</SwiperSlide>
 								))}
 							</Swiper>
