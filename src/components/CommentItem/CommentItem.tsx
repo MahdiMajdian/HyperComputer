@@ -7,7 +7,7 @@ interface IComment {
 const CommentItem: React.FC<IComment> = (props) => {
 	return (
 		<div className="px-8">
-			<div className=" w-52 h-64 text-sm font-medium">
+			<div className=" w-52 h-56 text-sm font-medium">
 				<p className="text-base text-green-500">
 					{props.title}
 				</p>

@@ -13,6 +13,12 @@ import category4 from "../assets/images/HomeCategory/4.svg"
 import category5 from "../assets/images/HomeCategory/5.svg"
 import category6 from "../assets/images/HomeCategory/6.svg"
 import CommentItem from "../components/CommentItem/CommentItem"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/swiper.min.css"
+import "swiper/components/navigation/navigation.min.css"
+import SwiperCore, { Pagination, Navigation } from "swiper/core"
+SwiperCore.use([Navigation])
+
 const Home: React.FC = () => {
 	return (
 		<div className="py-36 flex flex-col gap-6 items-center bg-gray-200 dark:bg-gray-900 transition duration-300  min-h-screen">
@@ -139,41 +145,84 @@ const Home: React.FC = () => {
 						</h1>
 					</div>
 					<div className="w-full relative flex justify-center gap-8 pb-4 ">
-						<div className="absolute right-0 inset-y-0 flex items-center pb-4">
+						<div className="absolute right-0 z-10 inset-y-0 flex items-center pb-4">
 							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-l-full">
 								<IoIosArrowForward className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
-						<div className="absolute left-0 inset-y-0 flex items-center pb-4">
+						<div className="absolute left-0 z-10 inset-y-0 flex items-center pb-4">
 							<div className="w-10 h-14 flex items-center justify-center bg-green-200 rounded-r-full">
 								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
-						<div className="flex justify-center overflow-x-auto  divide divide-x-reverse divide-x-2 divide-opacity-20 divide-gray-100">
-							<CommentItem
-								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
-								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
-					برخوردار هست و توی این رنج قیمت با "
-								author="جلال محمدی"
-							/>
-							<CommentItem
-								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
-								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
-					برخوردار هست و توی این رنج قیمت با "
-								author="جلال محمدی"
-							/>
-							<CommentItem
-								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
-								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
-					برخوردار هست و توی این رنج قیمت با "
-								author="جلال محمدی"
-							/>
-							<CommentItem
-								title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
-								text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
-					برخوردار هست و توی این رنج قیمت با "
-								author="جلال محمدی"
-							/>
+						<div className='w-full'>
+							<Swiper
+								slidesPerView={4.5}
+								spaceBetween={10}
+								centeredSlides={false}
+								
+								className="mySwiper z-0">
+								<div>
+									<SwiperSlide>
+										<CommentItem
+											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+										برخوردار هست و توی این رنج قیمت با "
+											author="جلال محمدی"
+										/>
+									</SwiperSlide>
+								</div>
+								<div>
+									<SwiperSlide>
+										<CommentItem
+											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+										برخوردار هست و توی این رنج قیمت با "
+											author="جلال محمدی"
+										/>
+									</SwiperSlide>
+								</div>
+								<div>
+									<SwiperSlide>
+										<CommentItem
+											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+										برخوردار هست و توی این رنج قیمت با "
+											author="جلال محمدی"
+										/>
+									</SwiperSlide>
+								</div>
+								<div>
+									<SwiperSlide>
+										<CommentItem
+											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+										برخوردار هست و توی این رنج قیمت با "
+											author="جلال محمدی"
+										/>
+									</SwiperSlide>
+								</div>
+								<div>
+									<SwiperSlide>
+										<CommentItem
+											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+										برخوردار هست و توی این رنج قیمت با "
+											author="جلال محمدی"
+										/>
+									</SwiperSlide>
+								</div>
+								<div>
+									<SwiperSlide>
+										<CommentItem
+											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
+											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
+										برخوردار هست و توی این رنج قیمت با "
+											author="جلال محمدی"
+										/>
+									</SwiperSlide>
+								</div>
+							</Swiper>
 						</div>
 					</div>
 				</div>
