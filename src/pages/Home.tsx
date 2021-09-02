@@ -99,23 +99,18 @@ const Home: React.FC = () => {
 								breakpoints={{
 									"512": {
 										slidesPerView: 1.8,
-										spaceBetween: 5,
 									},
 									"768": {
 										slidesPerView: 3,
-										spaceBetween: 70,
 									},
 									"1024": {
-										slidesPerView: 4,
-										spaceBetween: 210,
+										slidesPerView: 3.8,
 									},
 									"1280": {
-										slidesPerView: 5,
-										spaceBetween: 140,
+										slidesPerView: 4.3,
 									},
 									"1536": {
-										slidesPerView: 6,
-										spaceBetween: 190,
+										slidesPerView: 4.6,
 									},
 								}}
 								className="mySwiper z-0">
@@ -174,6 +169,23 @@ const Home: React.FC = () => {
 								slidesPerView={4.5}
 								spaceBetween={10}
 								centeredSlides={false}
+								breakpoints={{
+									"512": {
+										slidesPerView: 1.8,
+									},
+									"768": {
+										slidesPerView: 3,
+									},
+									"1024": {
+										slidesPerView: 3.8,
+									},
+									"1280": {
+										slidesPerView: 4.3,
+									},
+									"1536": {
+										slidesPerView: 4.6,
+									},
+								}}
 								className="mySwiper z-0">
 								{mostRecent.map((product) => (
 									<SwiperSlide>
@@ -216,6 +228,23 @@ const Home: React.FC = () => {
 								slidesPerView={4.5}
 								spaceBetween={10}
 								centeredSlides={false}
+								breakpoints={{
+									"512": {
+										slidesPerView: 1.8,
+									},
+									"768": {
+										slidesPerView: 3,
+									},
+									"1024": {
+										slidesPerView: 3.8,
+									},
+									"1280": {
+										slidesPerView: 4.3,
+									},
+									"1536": {
+										slidesPerView: 4.6,
+									},
+								}}
 								className="mySwiper z-0">
 								<div>
 									<SwiperSlide>
