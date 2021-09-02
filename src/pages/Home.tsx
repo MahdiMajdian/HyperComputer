@@ -17,9 +17,13 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper.min.css"
 import "swiper/components/navigation/navigation.min.css"
 import SwiperCore, { Pagination, Navigation } from "swiper/core"
+import { useAppDispatch, useAppSelector } from "../hooks"
 SwiperCore.use([Navigation])
 
 const Home: React.FC = () => {
+	const recommended = useAppSelector((state) => state.products.recommended)
+	const mostRecent = useAppSelector((state) => state.products.mostRecent)
+	const bestSellers = useAppSelector((state) => state.products.bestSellers)
 	return (
 		<div className="py-36 flex flex-col gap-6 items-center bg-gray-200 dark:bg-gray-900 transition duration-300  min-h-screen">
 			<div className="w-full max-w-7xl h-auto px-10 flex gap-4 md:gap-0 flex-col md:flex-row justify-between">
@@ -57,10 +61,15 @@ const Home: React.FC = () => {
 							</div>
 						</div>
 						<div className="flex justify-center gap-8 overflow-x-auto">
-							<ProductItem />
-							<ProductItem />
-							<ProductItem />
-							<ProductItem />
+							{bestSellers.map((product) => (
+								<ProductItem
+									key={product.id}
+									id={product.id}
+									name={product.faTitle}
+									price={product.price}
+									img={product.images[0]}
+								/>
+							))}
 						</div>
 					</div>
 				</div>
@@ -82,23 +91,56 @@ const Home: React.FC = () => {
 								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
-						<div className="flex justify-center gap-8 overflow-x-auto">
-							<ProductItem />
-							<ProductItem />
-							<ProductItem />
-							<ProductItem />
-							<ProductItem />
-							<ProductItem />
+						<div className="flex w-full justify-center gap-8">
+							<Swiper
+								slidesPerView={1.3}
+								spaceBetween={10}
+								centeredSlides={false}
+								breakpoints={{
+									"512": {
+										slidesPerView: 1.8,
+										spaceBetween: 5,
+									},
+									"768": {
+										slidesPerView: 3,
+										spaceBetween: 70,
+									},
+									"1024": {
+										slidesPerView: 4,
+										spaceBetween: 210,
+									},
+									"1280": {
+										slidesPerView: 5,
+										spaceBetween: 140,
+									},
+									"1536": {
+										slidesPerView: 6,
+										spaceBetween: 190,
+									},
+								}}
+								className="mySwiper z-0">
+								{recommended.map((product) => (
+									<SwiperSlide>
+										<ProductItem
+											key={product.id}
+											id={product.id}
+											name={product.faTitle}
+											price={product.price}
+											img={product.images[0]}
+										/>
+									</SwiperSlide>
+								))}
+							</Swiper>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="w-full max-w-7xl h-auto px-10">
 				<div className="flex flex-wrap sm:flex-nowrap justify-center rounded-lg sm:divide-x sm:divide-x-reverse divide-gray-300 dark:divide-gray-700 bg-gray-200 dark:bg-gray-800 shadow-md">
-					<CategoryListItem img={category1} text="کنسول بازی" />
+					{/* <CategoryListItem img={category1} text="کنسول بازی" /> */}
 					<CategoryListItem img={category2} text="کارت گرافیک" />
 					<CategoryListItem img={category3} text="مادربرد" />
-					<CategoryListItem img={category4} text="مانیتور" />
+					{/* <CategoryListItem img={category4} text="مانیتور" /> */}
 					<CategoryListItem img={category5} text="پردازنده" />
 					<CategoryListItem img={category6} text="کیبورد و موس" />
 				</div>
@@ -128,10 +170,24 @@ const Home: React.FC = () => {
 
 					<div className="w-full flex justify-center gap-8 pb-4 ">
 						<div className="flex justify-center gap-8 overflow-x-auto">
-							<ProductItem badge="جدید" />
-							<ProductItem badge="جدید" />
-							<ProductItem badge="جدید" />
-							<ProductItem badge="جدید" />
+							<Swiper
+								slidesPerView={4.5}
+								spaceBetween={10}
+								centeredSlides={false}
+								className="mySwiper z-0">
+								{mostRecent.map((product) => (
+									<SwiperSlide>
+										<ProductItem
+											key={product.id}
+											id={product.id}
+											name={product.faTitle}
+											price={product.price}
+											img={product.images[0]}
+											badge="جدید"
+										/>
+									</SwiperSlide>
+								))}
+							</Swiper>
 						</div>
 					</div>
 				</div>
@@ -155,12 +211,11 @@ const Home: React.FC = () => {
 								<IoIosArrowBack className="w-full h-auto p-2 text-green-500" />
 							</div>
 						</div>
-						<div className='w-full'>
+						<div className="w-full">
 							<Swiper
 								slidesPerView={4.5}
 								spaceBetween={10}
 								centeredSlides={false}
-								
 								className="mySwiper z-0">
 								<div>
 									<SwiperSlide>
