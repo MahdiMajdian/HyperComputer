@@ -1,0 +1,24 @@
+
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.detail-swiper img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  margin-bottom: 4.5rem;
+}
+
+.swiper-pagination-bullet {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.swiper-pagination-bullet-active {
+	opacity: 1;
+}
