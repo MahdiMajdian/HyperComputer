@@ -2,6 +2,7 @@ import React from "react"
 import { Switch, Route, Redirect, Router } from "react-router-dom"
 import Home from "../pages/Home"
 import NotFound from "../pages/NotFound"
+import ProductDetails from "../pages/ProductDetails"
 export const routes = (
 	<>
 		<Switch>
@@ -11,8 +12,11 @@ export const routes = (
 			<Route path="/shop">
 				<Home />
 			</Route>
-			<Route path='*'>
-				<NotFound/>
+			<Route path="/product">
+				<ProductDetails />
+			</Route>
+			<Route path="*">
+				<NotFound />
 			</Route>
 		</Switch>
 	</>
