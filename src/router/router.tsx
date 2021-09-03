@@ -12,7 +12,7 @@ export const routes = (
 			<Route path="/shop">
 				<Home />
 			</Route>
-			<Route path="/product">
+			<Route path="/product/:productId">
 				<ProductDetails />
 			</Route>
 			<Route path="*">

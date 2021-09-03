@@ -11,16 +11,19 @@ import SwiperCore, { Pagination } from "swiper"
 import { useAppSelector } from "../hooks"
 import { FaCircle } from "react-icons/fa"
 import ProductItem from "../components/ProductItem/ProductItem"
+import { useParams } from "react-router"
 
 SwiperCore.use([Pagination])
 
 const ProductDetails = () => {
-	const mostVisited = useAppSelector((state) => state.products.mostVisited)
-	const images = useAppSelector((state) => state.products.items[2].images)
+	const params: any = useParams()
+	const product = useAppSelector((state) =>
+		state.products.items.find((item) => item.id === +params.productId)
+	)
 	const pagination = {
 		clickable: true,
 		renderBullet: function (index: number, className: string) {
-			return `<span class="${className}"> <img src='${images[index]}' />  </span>`
+			return `<span class="${className}"> <img src='${product?.images[index]}' />  </span>`
 		},
 	}
 	return (
@@ -34,15 +37,15 @@ const ProductDetails = () => {
 				<div className="grid grid-cols-1 md:grid-cols-5 rounded-lg bg-white dark:bg-gray-800">
 					<div className="col-span-2">
 						<div className="flex gap-4 p-6 text-gray-400">
-							<AiOutlineHeart className="w-5 h-5 cursor-pointer" />
-							<IoMdShuffle className="w-5 h-5 cursor-pointer" />
-							<AiOutlineShareAlt className="w-5 h-5 cursor-pointer" />
+							<AiOutlineHeart className="w-5 h-5 cursor-pointer hover:text-red-500" />
+							<IoMdShuffle className="w-5 h-5 cursor-pointer hover:text-yellow-500" />
+							<AiOutlineShareAlt className="w-5 h-5 cursor-pointer hover:text-green-500" />
 						</div>
 						<div className="">
 							<Swiper
 								pagination={pagination}
 								className=" detail-swiper py-6">
-								{images.map((img) => (
+								{product?.images.map((img) => (
 									<SwiperSlide>
 										<img src={img} alt="" />
 									</SwiperSlide>
@@ -54,11 +57,10 @@ const ProductDetails = () => {
 						<div className="dark:text-white flex justify-between">
 							<div>
 								<h1 className="text-lg font-medium">
-									موس گیمینگ کورسیر GLAIVE RGB Aluminum
+									{product?.faTitle}
 								</h1>
 								<p className="text-xs text-gray-500">
-									Corsair GLAIVE RGB Aluminum Wired Gaming
-									Mouse
+									{product?.enTitle}
 								</p>
 							</div>
 							<div className="px-4">
@@ -79,7 +81,7 @@ const ProductDetails = () => {
 							</div>
 							<div className="grid gap-4">
 								<div className="rounded-lg bg-gray-300 dark:bg-gray-600 p-4 text-white">
-									Asus
+									{product?.brand}
 								</div>
 								<span className="text-xs flex gap-1">
 									<p className="dark:text-gray-300">
@@ -88,7 +90,7 @@ const ProductDetails = () => {
 									<p className="text-green-500">موجود</p>
 								</span>
 								<h1 className="text-green-400 text-2xl text-center font-medium">
-									1745000 تومان
+									{product?.price} تومان
 								</h1>
 							</div>
 						</div>
@@ -97,21 +99,12 @@ const ProductDetails = () => {
 				<div className="rounded-lg bg-white dark:bg-gray-800 grid gap-4 p-8">
 					<div className="flex items-center gap-2 mb-4">
 						<FaCircle className="bg-white bg-opacity-10 rounded-full p-1 text-green-400" />
-						<h1 className="font-medium text-xl dark:text-white">توضیح محصول</h1>
+						<h1 className="font-medium text-xl dark:text-white">
+							توضیح محصول
+						</h1>
 					</div>
 					<p className="leading-10 text-sm dark:text-white">
-						"K70 RGB MK.2 RAPIDFIRE، کیبورد مکانیکال گیمینگ در سایز
-						100% و از کیبوردهای بالارده شرکت کورسیر است که با هدف
-						دوام و پایداری طراحی شده و مجهز به شاسی آلومینیومی،
-						سوییچ‌های CHERRY MX Speed و نورپردازی غنی RGB به صورت
-						مجزا برای هر کلید است. این کیبورد به واسطه داشتن 8
-						مگابایت حافظه داخلی و سه پروفایل کاربری، دارای عملکردهای
-						ویژه و مستقل از نرم‌افزار کورسیر iCUE است. نرخ گزارش‌دهی
-						کیبورد گیمینگ K70 RGB MK.2 RAPIDFIRE برابر 1000 هرتز است
-						و این یعنی عدم ایجاد لگ و تأخیر در ارسال عملکرد کلیدها
-						از کیبورد به سیستم. این کیبورد 1.25 کیلوگرم وزن دارد و
-						به وسیله یک کابل ثابت USB 2.0 Type-A با پوشش بافته شده
-						به سیستم متصل می‌شود."
+						{product?.description}
 					</p>
 				</div>
 			</div>
