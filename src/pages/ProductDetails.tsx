@@ -8,10 +8,11 @@ import "swiper/components/pagination/pagination.min.css"
 import "./ProductDetails.css"
 
 import SwiperCore, { Pagination } from "swiper"
-import { useAppSelector } from "../hooks"
+import { useAppDispatch, useAppSelector } from "../hooks"
 import { FaCircle } from "react-icons/fa"
 import ProductItem from "../components/ProductItem/ProductItem"
 import { useParams } from "react-router"
+import { cartActions } from "../store/cart-slice"
 
 SwiperCore.use([Pagination])
 
@@ -20,6 +21,23 @@ const ProductDetails = () => {
 	const product = useAppSelector((state) =>
 		state.products.items.find((item) => item.id === +params.productId)
 	)
+	const dispatch = useAppDispatch()
+	const addToCartHandler = (count: number) => {
+		dispatch(
+			cartActions.addToCart({
+				id: product?.id,
+				name: product?.faTitle,
+				img: product?.images[0],
+				price: product?.price,
+				count: count,
+			})
+		)
+	}
+	const removeFromCartHandler = (count: number) => {
+		dispatch(cartActions.removeFromCart({ id: product?.id, count: count }))
+	}
+	const items = useAppSelector((state) => state.cart.items)
+	console.log(items)
 	const pagination = {
 		clickable: true,
 		renderBullet: function (index: number, className: string) {
@@ -80,10 +98,12 @@ const ProductDetails = () => {
 								<p>دارای نورپردازی RGB</p>
 							</div>
 							<div className="grid gap-4">
-								<div className="rounded-lg bg-gray-300 dark:bg-gray-600 p-4 text-white">
+								<div
+									onClick={() => addToCartHandler(5)}
+									className="rounded-lg bg-gray-300 dark:bg-gray-600 p-4 text-white">
 									{product?.brand}
 								</div>
-								<span className="text-xs flex gap-1">
+								<span onClick={() => removeFromCartHandler(3)} className="text-xs flex gap-1">
 									<p className="dark:text-gray-300">
 										وضعیت محصول:{" "}
 									</p>
