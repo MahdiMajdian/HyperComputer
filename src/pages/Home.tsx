@@ -1,23 +1,23 @@
 import React from "react"
-import { IoIosArrowForward, IoIosArrowBack, IoMdShuffle } from "react-icons/io"
-import { FaCircle, FaRegKeyboard } from "react-icons/fa"
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
+import { FaCircle } from "react-icons/fa"
 import slide1 from "../assets/images/slide-1.webp"
 import slide2 from "../assets/images/slide-2.webp"
 import slide3 from "../assets/images/slide-3.webp"
 import ProductItem from "../components/ProductItem/ProductItem"
 import CategoryListItem from "../components/CategoryListItem/CategoryListItem"
-import category1 from "../assets/images/HomeCategory/1.svg"
+// import category1 from "../assets/images/HomeCategory/1.svg"
 import category2 from "../assets/images/HomeCategory/2.svg"
 import category3 from "../assets/images/HomeCategory/3.svg"
-import category4 from "../assets/images/HomeCategory/4.svg"
+// import category4 from "../assets/images/HomeCategory/4.svg"
 import category5 from "../assets/images/HomeCategory/5.svg"
 import category6 from "../assets/images/HomeCategory/6.svg"
 import CommentItem from "../components/CommentItem/CommentItem"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper.min.css"
 import "swiper/components/navigation/navigation.min.css"
-import SwiperCore, { Pagination, Navigation } from "swiper/core"
-import { useAppDispatch, useAppSelector } from "../hooks"
+import SwiperCore, { Navigation } from "swiper/core"
+import { useAppSelector } from "../hooks"
 SwiperCore.use([Navigation])
 
 const Home: React.FC = () => {
@@ -84,9 +84,8 @@ const Home: React.FC = () => {
 								}}
 								className="mySwiper z-0">
 								{bestSellers.map((product) => (
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<ProductItem
-											key={product.id}
 											id={product.id}
 											name={product.faTitle}
 											price={product.price}
@@ -140,9 +139,8 @@ const Home: React.FC = () => {
 								}}
 								className="mySwiper z-0">
 								{recommended.map((product) => (
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<ProductItem
-											key={product.id}
 											id={product.id}
 											name={product.faTitle}
 											price={product.price}
@@ -213,10 +211,9 @@ const Home: React.FC = () => {
 								}}
 								className="mySwiper w-full z-0">
 								{mostRecent.map((product) => (
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<div>
 											<ProductItem
-												key={product.id}
 												id={product.id}
 												name={product.faTitle}
 												price={product.price}
@@ -274,7 +271,7 @@ const Home: React.FC = () => {
 								}}
 								className="mySwiper z-0">
 								<div>
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<CommentItem
 											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
 											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
@@ -284,7 +281,7 @@ const Home: React.FC = () => {
 									</SwiperSlide>
 								</div>
 								<div>
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<CommentItem
 											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
 											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
@@ -294,7 +291,7 @@ const Home: React.FC = () => {
 									</SwiperSlide>
 								</div>
 								<div>
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<CommentItem
 											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
 											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
@@ -304,7 +301,7 @@ const Home: React.FC = () => {
 									</SwiperSlide>
 								</div>
 								<div>
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<CommentItem
 											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
 											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
@@ -314,7 +311,7 @@ const Home: React.FC = () => {
 									</SwiperSlide>
 								</div>
 								<div>
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<CommentItem
 											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
 											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی
@@ -324,7 +321,7 @@ const Home: React.FC = () => {
 									</SwiperSlide>
 								</div>
 								<div>
-									<SwiperSlide>
+									<SwiperSlide key={Math.random()}>
 										<CommentItem
 											title="مانیتور گیمینگ 23.8 اینچ ایسر VG240Y"
 											text="بسیار خوش ساخت و شیک،در کنار زیبای از کارایی قابل قبولی

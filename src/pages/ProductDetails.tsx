@@ -1,6 +1,6 @@
 import React from "react"
 import { AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai"
-import { IoIosArrowBack, IoIosArrowForward, IoMdShuffle } from "react-icons/io"
+import { IoMdShuffle } from "react-icons/io"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import "swiper/swiper.min.css"
@@ -10,9 +10,10 @@ import "./ProductDetails.css"
 import SwiperCore, { Pagination } from "swiper"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import { FaCircle } from "react-icons/fa"
-import ProductItem from "../components/ProductItem/ProductItem"
+// import ProductItem from "../components/ProductItem/ProductItem"
 import { useParams } from "react-router"
 import { cartActions } from "../store/cart-slice"
+import { Link } from "react-router-dom"
 
 SwiperCore.use([Pagination])
 
@@ -36,8 +37,7 @@ const ProductDetails = () => {
 	const removeFromCartHandler = (count: number) => {
 		dispatch(cartActions.removeFromCart({ id: product?.id, count: count }))
 	}
-	const items = useAppSelector((state) => state.cart.items)
-	console.log(items)
+	// const items = useAppSelector((state) => state.cart.items)
 	const pagination = {
 		clickable: true,
 		renderBullet: function (index: number, className: string) {
@@ -47,12 +47,12 @@ const ProductDetails = () => {
 	return (
 		<div className="py-36 flex flex-col gap-6 items-center bg-gray-200 dark:bg-gray-900 transition duration-300  min-h-screen">
 			<div className="w-full max-w-7xl h-auto px-10 grid gap-4">
-				<a href="">
+				<Link to="/report-issues">
 					<p className="text-left text-sm p-4 pb-0 text-gray-500">
 						اشکال در جزئیات
 					</p>
-				</a>
-				<div className="grid grid-cols-1 md:grid-cols-5 rounded-lg bg-white dark:bg-gray-800">
+				</Link>
+				<div className="transition duration-300 grid grid-cols-1 md:grid-cols-5 rounded-lg bg-white dark:bg-gray-800">
 					<div className="col-span-2">
 						<div className="flex gap-4 p-6 text-gray-400">
 							<AiOutlineHeart className="w-5 h-5 cursor-pointer hover:text-red-500" />
@@ -63,8 +63,8 @@ const ProductDetails = () => {
 							<Swiper
 								pagination={pagination}
 								className=" detail-swiper py-6">
-								{product?.images.map((img) => (
-									<SwiperSlide>
+								{product?.images.map((img , index) => (
+									<SwiperSlide key={index}>
 										<img src={img} alt="" />
 									</SwiperSlide>
 								))}
@@ -100,10 +100,12 @@ const ProductDetails = () => {
 							<div className="grid gap-4">
 								<div
 									onClick={() => addToCartHandler(5)}
-									className="rounded-lg bg-gray-300 dark:bg-gray-600 p-4 text-white">
+									className="rounded-lg transition duration-300 bg-gray-300 dark:bg-gray-600 p-4 text-white">
 									{product?.brand}
 								</div>
-								<span onClick={() => removeFromCartHandler(3)} className="text-xs flex gap-1">
+								<span
+									onClick={() => removeFromCartHandler(3)}
+									className="text-xs flex gap-1">
 									<p className="dark:text-gray-300">
 										وضعیت محصول:{" "}
 									</p>
@@ -116,7 +118,7 @@ const ProductDetails = () => {
 						</div>
 					</div>
 				</div>
-				<div className="rounded-lg bg-white dark:bg-gray-800 grid gap-4 p-8">
+				<div className="rounded-lg transition duration-300 bg-white dark:bg-gray-800 grid gap-4 p-8">
 					<div className="flex items-center gap-2 mb-4">
 						<FaCircle className="bg-white bg-opacity-10 rounded-full p-1 text-green-400" />
 						<h1 className="font-medium text-xl dark:text-white">

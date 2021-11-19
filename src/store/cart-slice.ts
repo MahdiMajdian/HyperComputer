@@ -42,12 +42,14 @@ const cartSlice = createSlice({
 		removeFromCart(state, action) {
 			const id = action.payload.id
 			const count = action.payload.count
-			const item = state.items.find((item) => item.id === id)!
-			if (item?.quantity > count) {
-				item.quantity -= count
-			} else {
-				state.totalQuantity--
-				state.items = state.items.filter((item) => item.id !== id)
+			const item = state.items.find((item) => item.id === id)
+			if (item) {
+				if (item?.quantity > count) {
+					item.quantity -= count
+				} else {
+					state.totalQuantity--
+					state.items = state.items.filter((item) => item.id !== id)
+				}
 			}
 		},
 	},

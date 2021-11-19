@@ -3,7 +3,6 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai"
 import { IoMdShuffle } from "react-icons/io"
 import { FaHandshake } from "react-icons/fa"
 
-import modem from "../../assets/images/modem.webp"
 import { Link } from "react-router-dom"
 interface IProductItem {
 	id: number
@@ -23,7 +22,7 @@ const ProductItem: React.FC<IProductItem> = (props) => {
 							<p>{props.badge}</p>
 						</div>
 					)}
-					<img src={props.img} />
+					<img src={props.img} alt='product item' />
 					<p className="text-sm px-4 mb-auto text-gray-700 dark:text-white">
 						{props.name}
 					</p>

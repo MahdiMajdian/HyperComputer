@@ -147,10 +147,10 @@ const Footer = () => {
 				</div>
 				<div className="flex justify-center">
 					<span className="w-32 lg:w-28 2xl:w-40">
-						<img src={enamad} className="w-full" />
+						<img src={enamad} alt="enamad" className="w-full" />
 					</span>
 					<span className="w-28 lg:w-20 2xl:w-32">
-						<img src={karLogo} />
+						<img src={karLogo} alt="etehadie kar" />
 					</span>
 				</div>
 			</div>
@@ -160,25 +160,25 @@ const Footer = () => {
 						<Link to="/">خانه</Link>
 					</li>
 					<li>
-						<a href="#">چرا هایپر</a>
+						<Link to="/why-hyper-computers">چرا هایپر</Link>
 					</li>
 					<li>
-						<a href="#">تالار گفتمان</a>
+						<Link to="/forum">تالار گفتمان</Link>
 					</li>
 					<li>
-						<a href="#">تماس با ما</a>
+						<Link to="/contact-us">تماس با ما</Link>
 					</li>
 					<li>
-						<a href="#">راهنمای خرید</a>
+						<Link to="/buyers-guide">راهنمای خرید</Link>
 					</li>
 					<li>
-						<a href="#">شرایط گارانتی</a>
+						<Link to="/guarantee">شرایط گارانتی</Link>
 					</li>
 					<li>
-						<a href="#">اخبار</a>
+						<Link to="/news">اخبار</Link>
 					</li>
 					<li>
-						<a href="#">درباره ما</a>
+						<Link to="/about-us">درباره ما</Link>
 					</li>
 				</ul>
 			</div>

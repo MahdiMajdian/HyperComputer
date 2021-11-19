@@ -1,6 +1,5 @@
 import React from "react"
 import logo from "../assets/images/logo.webp"
-import { IoMdClose } from "react-icons/io"
 import { Link } from "react-router-dom"
 const NotFound = () => {
 	return (
@@ -13,7 +12,7 @@ const NotFound = () => {
 				</p>
                 <Link to='/' className='bg-green-500 rounded text-white p-2 transition duration-200 shadow-sm hover:shadow-md'>برو به صفحه اصلی</Link>
 			</div>
-			<img src={logo} />
+			<img src={logo} alt='404 Logo' />
 			<p className="pt-4 text-gray-600 font-mono ">
 				Error 404 - Page Not Found
 			</p>

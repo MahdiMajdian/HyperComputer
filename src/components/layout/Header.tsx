@@ -19,6 +19,7 @@ import CategoryMenuContent1 from "../CategoryMenu/CategoryMenuContent1"
 import CategoryMenuContent2 from "../CategoryMenu/CategoryMenuContent2"
 import CategoryMenuContent3 from "../CategoryMenu/CategoryMenuContent3"
 import CategoryMenuContent4 from "../CategoryMenu/CategoryMenuContent4"
+import { useAppSelector } from "../../hooks"
 
 interface IHeader {
 	themeToggle: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -42,6 +43,7 @@ const Header: React.FC<IHeader> = (props) => {
 		}
 	}, [])
 
+	const cartQuantity = useAppSelector((state) => state.cart.totalQuantity)
 	return (
 		<header className="w-screen flex flex-col justify-center fixed text-gray-800 dark:text-white z-50">
 			<div className="bg-white dark:bg-gray-800 w-full z-10 transition duration-300 ">
@@ -55,9 +57,9 @@ const Header: React.FC<IHeader> = (props) => {
 							className="w-full text-sm bg-transparent transition ease-in-out duration-200 bg-gray-200 dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full  dark:text-white outline-none p-2.5"
 							placeholder="دنبال چه چیزی می گردید؟"
 						/>
-						<a href="#" className="p-2.5">
+						<span className="p-2.5">
 							<FiSearch />
-						</a>
+						</span>
 					</div>
 
 					<div className="flex items-center gap-4">
@@ -71,7 +73,7 @@ const Header: React.FC<IHeader> = (props) => {
 							<button className="relative">
 								<FiShoppingCart className="btn drop-shadow-lg" />
 								<div className="absolute -top-1 -right-2 iransans text-2xs font-bold flex justify-center items-center text-gray-600 bg-yellow-400 rounded-full w-5 h-4">
-									24
+									{cartQuantity}
 								</div>
 							</button>
 							<button>
@@ -88,20 +90,20 @@ const Header: React.FC<IHeader> = (props) => {
 					!isMenuVisible && "-translate-y-10"
 				} shadow-md`}>
 				<div
-					className={`h-10 w-full relative text-xs sm:text-sm text-gray-600 font-medium dark:text-gray-200 flex justify-center md:justify-between px-0 sm:px-10 items-center mx-auto max-w-8xl`}>
+					className={`h-10 w-full relative text-xs sm:text-sm text-gray-600 dark:text-gray-200 flex justify-center md:justify-between px-0 sm:px-10 items-center mx-auto max-w-8xl`}>
 					<div className="hidden md:block h-full">
 						<ul className="flex gap-4 h-full">
 							<li
-								className="h-full flex items-center"
+								className="h-full font-medium flex items-center"
 								onMouseEnter={() => setIsCategoryOpen(true)}
 								onMouseLeave={() => setIsCategoryOpen(false)}
 								onClick={() =>
 									setIsCategoryOpen((prev) => !prev)
 								}>
-								<a href="#" className="flex items-center gap-1">
+								<span className="flex items-center gap-1">
 									<p>دسته بندی ها</p>
 									<FiChevronDown className="text-green-400" />
-								</a>
+								</span>
 								{isCategoryOpen && (
 									<div
 										className="absolute top-10 w-full pl-20"
@@ -111,8 +113,13 @@ const Header: React.FC<IHeader> = (props) => {
 										<div className="grid grid-cols-8 rounded-b-lg h-full w-full">
 											<div className="col-span-2 bg-green-50 dark:bg-gray-700">
 												<ul className="py-8 pr-6">
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
-													onMouseOver={()=> setCategoryContent(1)}>
+													<li
+														className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+														onMouseOver={() =>
+															setCategoryContent(
+																1
+															)
+														}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
 															<p>پردازنده</p>
@@ -120,8 +127,13 @@ const Header: React.FC<IHeader> = (props) => {
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
 													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
-													onMouseOver={()=> setCategoryContent(2)}>
+													<li
+														className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+														onMouseOver={() =>
+															setCategoryContent(
+																2
+															)
+														}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
 															<p>کارت گرافیک</p>
@@ -129,8 +141,13 @@ const Header: React.FC<IHeader> = (props) => {
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
 													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
-													onMouseOver={()=> setCategoryContent(3)}>
+													<li
+														className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+														onMouseOver={() =>
+															setCategoryContent(
+																3
+															)
+														}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
 															<p>کیبورد</p>
@@ -138,8 +155,13 @@ const Header: React.FC<IHeader> = (props) => {
 
 														<FiChevronLeft className="text-green-400 w-4 h-4" />
 													</li>
-													<li className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
-													onMouseOver={()=> setCategoryContent(4)}>
+													<li
+														className="flex items-center justify-between w-full py-4 px-4 hover:bg-green-200 dark:hover:bg-gray-800 rounded-r-lg"
+														onMouseOver={() =>
+															setCategoryContent(
+																4
+															)
+														}>
 														<div className="flex gap-2 items-center">
 															<FaDotCircle className="text-green-400 w-2 h-2" />
 															<p>مادربورد</p>
@@ -167,62 +189,62 @@ const Header: React.FC<IHeader> = (props) => {
 									</div>
 								)}
 							</li>
-							<li className="h-full flex items-center">
-								<a href="#">
+							<li className="h-full font-medium flex items-center">
+								<Link to="/why-hyper-computers">
 									<p>چرا هایپر کامپیوتر</p>
-								</a>
+								</Link>
 							</li>
-							<li className="h-full flex items-center">
-								<a href="#">
+							<li className="h-full font-medium flex items-center">
+								<Link to="/buyers-guide">
 									<p>راهنمای خرید</p>
-								</a>
+								</Link>
 							</li>
-							<li className="h-full flex items-center">
-								<a href="#">
+							<li className="h-full font-medium flex items-center">
+								<Link to="/guarantee">
 									<p>شرایط گارانتی</p>
-								</a>
+								</Link>
 							</li>
 							<li
-								className="h-full flex items-center relative"
+								className="h-full font-medium flex items-center relative"
 								onMouseEnter={() => setIsOtherOpen(true)}
 								onMouseLeave={() => setIsOtherOpen(false)}>
-								<a href="#" className="flex items-center gap-1">
+								<span className="flex items-center gap-1">
 									<p>سایر</p>
 									<FiMoreHorizontal className="text-green-400" />
-								</a>
+								</span>
 								{isOtherOpen && (
 									<div className="absolute w-56 top-10 bg-white dark:bg-gray-800 rounded-b-lg overflow-hidden">
 										<ul className="w-full">
 											<li className="p-4">
-												<a
-													href="#"
+												<Link
+													to="/buy-on-us"
 													className="font-medium">
 													خرید اقساطی
-												</a>
+												</Link>
 											</li>
 
 											<li className="p-4">
-												<a
-													href="#"
+												<Link
+													to="/contact-us"
 													className="font-medium">
 													تماس با ما
-												</a>
+												</Link>
 											</li>
 
 											<li className="p-4">
-												<a
-													href="#"
+												<Link
+													to="/faq"
 													className="font-medium">
 													سوالات متداول
-												</a>
+												</Link>
 											</li>
 
 											<li className="p-4">
-												<a
-													href="#"
+												<Link
+													to="/about-us"
 													className="font-medium">
 													درباره ما
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
@@ -233,22 +255,28 @@ const Header: React.FC<IHeader> = (props) => {
 					<div>
 						<ul className="flex gap-4">
 							<li className="my-auto">
-								<a href="#" className="flex items-center gap-1">
+								<Link
+									to="/buy-on-us"
+									className="flex items-center gap-1">
 									<BiCoin className="text-green-500 text-base" />
 									<p>خرید اقساطی</p>
-								</a>
+								</Link>
 							</li>
 							<li className="my-auto">
-								<a href="#" className="flex items-center gap-1">
+								<Link
+									to="/sales"
+									className="flex items-center gap-1">
 									<FiPercent className="text-green-500 text-base" />
 									<p>فروش ویژه</p>
-								</a>
+								</Link>
 							</li>
 							<li className="my-auto">
-								<a href="#" className="flex items-center gap-1">
+								<Link
+									to="/second-hand-items"
+									className="flex items-center gap-1">
 									<FaHandshake className="text-green-500 text-base" />
 									<p>دست دوم</p>
-								</a>
+								</Link>
 							</li>
 							<li className="flex  items-center my-auto">
 								<button
